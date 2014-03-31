@@ -1,0 +1,12 @@
+<h2> Edit <%= @user.real_name %> </h2>
+
+<%= form_for @user do |f| %>
+  <%= f.label :real_name, "Name" %> <%= f.text_field :real_name %> <br />
+  <%= f.label :age, "Age" %> <%= f.text_field :age %> <br />
+  <%= f.label :gender, "Gender" %> <%= f.text_field :gender %> <br />
+  <%= f.label :major, "Major" %> <%= f.text_field :major %> <br />
+  <%= f.label :bio, "About me" %> <%= f.text_field :bio %> <br />
+
+
+  <%= f.submit %>
+<% end %>

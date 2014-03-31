@@ -1,0 +1,19 @@
+<h2> Getting Started with Groop </h2>
+
+<%= form_for @user do |f| %>
+ <% if @user.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= f.label :username, "Username" %> <%= f.text_field :username %><br />
+  <%= f.label :real_name, "Real Name" %> <%= f.text_field :real_name %><br />
+  <%= f.label :password, "Password" %> <%= f.password_field :password %> <br />
+  Confirm: <%= f.password_field :password_confirmation %>  <br />
+  <%= f.submit %>
+<% end %>
