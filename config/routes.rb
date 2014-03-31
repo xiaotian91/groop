@@ -1,4 +1,6 @@
 Groop::Application.routes.draw do
+  resources :quizzes
+
   resources :registrations
 
   resources :courses

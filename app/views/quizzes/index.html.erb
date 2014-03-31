@@ -1,0 +1,5 @@
+<% @quizzes.each do |quiz| %>
+Answer to number 1: <%= quiz.one %><br \>
+Answer to number 2: <%= quiz.two %><br \>
+<%= link_to "Change answers", edit_quiz_url(quiz) %>
+<% end %>
