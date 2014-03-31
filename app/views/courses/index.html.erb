@@ -1,0 +1,9 @@
+<ul>
+ <% @courses.each do |course| %>
+ <li>
+   <%= course.courseName %> (<%= link_to "view",course %>)
+ </li>
+ <%end%>
+</ul>
+</br>
+<%= link_to "add another course", new_course_url %>

@@ -16,6 +16,7 @@ class UsersController < ApplicationController
  
   def show
     @user = User.find(params[:id])
+    @registration = @user.registrations.new
   end
 
   def edit

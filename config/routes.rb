@@ -1,4 +1,8 @@
 Groop::Application.routes.draw do
+  resources :registrations
+
+  resources :courses
+
   get "login" => "auth#login", :as => "login"
   get "logout" => "auth#logout", :as => "logout"
   post "do_login" => "auth#do_login", :as => "do_login"

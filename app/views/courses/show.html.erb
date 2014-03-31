@@ -1,0 +1,16 @@
+<h1>
+ <%= @course.courseName %></h1>
+ <br/>
+ <%= @course.courseNum %><br/>
+ <%= @course.instructorName %><br/>
+ <%= @course.courseDesc %><br/>
+
+<h3> People enrolled in this course </h3>
+
+<ul>
+ <% @course.user.each do |user| %>
+   <li> <%= link_to user.name, user_url(user) %>
+ <% end %>
+</ul>
+
+<%= link_to "back to course list", courses_url %>
