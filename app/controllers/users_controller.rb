@@ -8,7 +8,7 @@ class UsersController < ApplicationController
    user_params = params.require(:user).permit(:username, :password, :real_name, :password_confirmation)
     @user = User.new user_params
     if (@user.save)
-      redirect_to user_url(@user)
+      redirect_to edit_user_url(@user)
     else
       render action: 'new'
     end

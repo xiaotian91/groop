@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331012730) do
+ActiveRecord::Schema.define(version: 20140331215534) do
+
+  create_table "courses", force: true do |t|
+    t.string   "courseNum"
+    t.string   "courseName"
+    t.string   "instructorName"
+    t.text     "courseDesc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quizzes", force: true do |t|
+    t.integer  "one"
+    t.integer  "two"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "three"
+    t.integer  "four"
+    t.integer  "five"
+    t.integer  "six"
+    t.integer  "seven"
+    t.integer  "eight"
+    t.integer  "nine"
+    t.integer  "ten"
+  end
+
+  create_table "registrations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

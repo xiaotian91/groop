@@ -1,4 +1,6 @@
 Groop::Application.routes.draw do
+  resources :quizzes
+
   get "login" => "auth#login", :as => "login"
   get "logout" => "auth#logout", :as => "logout"
   post "do_login" => "auth#do_login", :as => "do_login"

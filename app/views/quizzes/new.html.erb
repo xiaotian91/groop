@@ -1,0 +1,26 @@
+<h1>Quiz</h1>
+<%= form_for(@quiz) do |f| %>
+  <p>How organized are you?</p>
+  <%= f.radio_button(:one, 1) %>
+  <%= f.label(:one_1, "I need help")%><br/>
+  <%= f.radio_button(:one, 2) %>
+  <%= f.label(:one_2, "Pretty messy")%><br/> 
+  <%= f.radio_button(:one, 3) %>
+  <%= f.label(:one_3, "Somewhat organized")%><br/>
+  <%= f.radio_button(:one, 4) %>
+  <%= f.label(:one_4, "Very organized")%><br/>
+
+  <p>What timeframe do you usually do homework, or able to at least meet?</p>
+  <%= f.radio_button(:two, 1) %>
+  <%= f.label(:two_1, "Mornings")%><br/>
+  <%= f.radio_button(:two, 2) %>
+  <%= f.label(:two_2, "Lunchtime")%><br/>
+  <%= f.radio_button(:two, 3) %>
+  <%= f.label(:two_3, "Afternoons")%><br/>
+  <%= f.radio_button(:two, 4) %>
+  <%= f.label(:two_4, "Late night")%><br/>
+  <%= f.submit %>
+
+
+
+<% end %>
