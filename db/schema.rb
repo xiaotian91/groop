@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140331221513) do
+=======
+ActiveRecord::Schema.define(version: 20140331215534) do
+>>>>>>> c2e0db888448f32081483ee8f759baa05d1fcdc1
 
   create_table "courses", force: true do |t|
     t.string   "courseNum"
@@ -25,6 +29,11 @@ ActiveRecord::Schema.define(version: 20140331221513) do
   create_table "quizzes", force: true do |t|
     t.integer  "one"
     t.integer  "two"
+<<<<<<< HEAD
+=======
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> c2e0db888448f32081483ee8f759baa05d1fcdc1
     t.integer  "three"
     t.integer  "four"
     t.integer  "five"
@@ -33,8 +42,11 @@ ActiveRecord::Schema.define(version: 20140331221513) do
     t.integer  "eight"
     t.integer  "nine"
     t.integer  "ten"
+<<<<<<< HEAD
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+>>>>>>> c2e0db888448f32081483ee8f759baa05d1fcdc1
   end
 
   create_table "registrations", force: true do |t|

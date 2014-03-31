@@ -3,13 +3,13 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new
   end
 
-  def create
+  def create 
     @params = params.require(:quiz).permit(:one, :two)
     @quiz = Quiz.new(@params)
     @quiz.save
     redirect_to(quizzes_url)
   end
-
+ 
   def index
     @quizzes = Quiz.all
   end
