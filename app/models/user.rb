@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, :confirmation => true
   has_many :registrations
   has_many :courses, through: :registrations
+  has_one :quiz
+
 end
