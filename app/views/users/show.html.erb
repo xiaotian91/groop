@@ -7,9 +7,6 @@
 </ul>
 
 <%#if this is the current logged in user's profile, they can edit%>
-<%=@user.id%>,<%=session[:id]%>
-<%= debug @user %>
-<%= debug @user.quiz %>
 
 <% if @user.id == session[:user_id] %>
   <%#edit profile or logout%>
