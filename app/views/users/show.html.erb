@@ -5,12 +5,19 @@
   <li>Major: <%= @user.major %></li>
   <li>About me: <%= @user.bio %></li>
 </ul>
-<%= link_to "Edit", edit_user_url(@user)%>
-<%= link_to "Log Out", logout_url %>
 
-<% if @user.quiz.nil?%>
-<%= link_to "Take Quiz", new_quiz_url %>
-<%else%>
-<%= link_to "Edit Quiz", edit_quiz_url(@user.id) %>
+<%#if this is the current logged in user's profile, they can edit%>
+<%=@user.id%>,<%=session[:id]%>
+<%= debug @user %>
+<%= debug @user.quiz %>
+
+<% if @user.id == session[:user_id] %>
+  <%#edit profile or logout%>
+  <%= link_to "Edit", edit_user_url(@user)%>
+  <%= link_to "Log Out", logout_url %>
+  <% if @user.quiz.nil?%>
+    <%= link_to "Take Quiz", new_quiz_url %>
+  <%else%>
+    <%= link_to "Edit Quiz", edit_quiz_url(@user.id) %>
+  <%end%>
 <%end%>
-
