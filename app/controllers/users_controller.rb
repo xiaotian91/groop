@@ -41,41 +41,15 @@ class UsersController < ApplicationController
   def logout
   end
 
-
-def computeCompat
-
- for user in @users
-   compatScore = 100 
-
-  if @user.quiz.one!=user.quiz.one 
-     compatScore = compatScore - 5 
+private
+  def get_logged_in_user
+    id = session[:user_id]
+    if id.nil?
+      flash[:notice] = "You must log in first"
+      redirect_to login_url
+    else
+      @user = User.find id
+    end
   end
-  if @user.quiz.two!=user.quiz.two
-    compatScore = compatScore - 5
-  end
-  if @user.quiz.three!=user.quiz.three
-    compatScore = compatScore - 5 
-  end
-  if @user.quiz.three!=user.quiz.three
-    compatScore = compatScore - 5 
-  end
-  if @user.quiz.four!=user.quiz.four
-    compatScore = compatScore - 5 
-  end
-  if @user.quiz.five!=user.quiz.five
-   compatScore = compatScore - 5 
-  end
-  if @user.quiz.six!=user.quiz.six 
-    compatScore = compatScore - 5 
-  end
-  if @user.quiz.seven!=user.quiz.seven 
-    compatScore = compatScore - 5 
-  end
-  if @user.quiz.eight!=user.quiz.eight 
-    compatScore = compatScore - 5 
-  end
- end
-end
-
 
 end

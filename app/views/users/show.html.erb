@@ -19,7 +19,7 @@
 <%#if this is the current logged in user's profile, they can edit%>
 
 <% if @user.id == session[:user_id] %>
-
+<%unless @user.quiz.nil? %>
 <%scores = Hash.new%>
 
 <% for user in @users %>
@@ -48,10 +48,10 @@
   <% if @user.quiz.six!=user.quiz.six %>
     <% compatScore = compatScore - 5 %>
   <%end%>
-  <% if @user.quiz.seven!=user.quiz.seven %>
+  <% if @user.quiz.seven!=user.quiz.eight %>
     <% compatScore = compatScore - 5 %>
   <%end%>
-  <% if @user.quiz.eight!=user.quiz.eight %>
+  <% if @user.quiz.eight!=user.quiz.seven %>
     <% compatScore = compatScore - 5 %>
   <%end%>
   <br/>
@@ -70,7 +70,7 @@
   <li><%=link_to newUser.real_name, newUser %>  <%=v%></li>
   <br/>
 <%end%>
-
+<%end%>
 </ul>
 <br/>
 
