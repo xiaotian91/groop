@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
 
-before_filter :get_logged_in_user, :only => [:new, :create, :edit]
+before_filter :get_logged_in_user, :only => [:new, :create]
 
     def new
     @quiz = Quiz.new
@@ -9,9 +9,13 @@ before_filter :get_logged_in_user, :only => [:new, :create, :edit]
   def create 
     @params = params.require(:quiz).permit(:one, :two, :three, :four, :five, :six, :seven, :eight, :nine, :ten)
     @quiz = Quiz.new(@params)
+    @quiz.id = @user.id
     @quiz.user = @user
-    @quiz.save
-    redirect_to user_url(@quiz.user)
+    if  @quiz.save
+      redirect_to user_url(@quiz.user)
+    else
+      render :action => "new"
+    end
   end
  
   def index
