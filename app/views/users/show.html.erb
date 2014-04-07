@@ -8,9 +8,63 @@
 
 <%#if this is the current logged in user's profile, they can edit%>
 
-<%= debug @user %>
-
 <% if @user.id == session[:user_id] %>
+
+<%scores = Hash.new%>
+
+<% for user in @users %>
+  <% compatScore = 100 %>
+  
+  <% if user.id != @user.id %>
+
+  <% if @user.quiz.one!=user.quiz.one %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.two!=user.quiz.two %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.three!=user.quiz.three %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.three!=user.quiz.three %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.four!=user.quiz.four %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.five!=user.quiz.five %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.six!=user.quiz.six %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.seven!=user.quiz.seven %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <% if @user.quiz.eight!=user.quiz.eight %>
+    <% compatScore = compatScore - 5 %>
+  <%end%>
+  <br/>
+  <%scores[user.id] = compatScore%>
+  <%end%>
+ 
+<%end%>
+
+<p>Your best matches</p>
+
+<%sortedScores = scores.sort_by{|k,v| v}.reverse%>
+<ul>
+<%sortedScores.each do |k,v| %>
+
+  <%newUser = @users.find(k)%>
+  <li><%=link_to newUser.real_name, newUser %>  <%=v%></li>
+  <br/>
+<%end%>
+
+</ul>
+<br/>
+
+
   <%#edit profile or logout%>
   <%= link_to "Edit", edit_user_url(@user)%>
   <%= link_to "Log Out", logout_url %>

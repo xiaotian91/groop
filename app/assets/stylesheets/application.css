@@ -15,8 +15,10 @@
 body {
   width: 650px;
   margin: 0 auto;
+  text-align: center;
 }
 
 #mainHeader {
   color: blue;
+  text-align: center;
 }
