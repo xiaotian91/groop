@@ -1,0 +1,72 @@
+<h1>Quiz</h1>
+<%= form_for(@quiz) do |f| %>
+  <p>How organized are you?</p>
+  <%= f.radio_button(:one, 1) %>
+  <%= f.label(:one_1, "I need help")%><br/>
+  <%= f.radio_button(:one, 2) %>
+  <%= f.label(:one_2, "Pretty messy")%><br/>
+  <%= f.radio_button(:one, 3) %>
+  <%= f.label(:one_3, "Somewhat organized")%><br/>
+  <%= f.radio_button(:one, 4) %>
+  <%= f.label(:one_4, "Very organized")%><br/>
+
+  <p>What timeframe do you usually do homework, or able to at least meet?</p>
+  <%= f.radio_button(:two, 1) %>
+  <%= f.label(:two_1, "Mornings")%><br/>
+  <%= f.radio_button(:two, 2) %>
+  <%= f.label(:two_2, "Lunchtime")%><br/>
+  <%= f.radio_button(:two, 3) %>
+  <%= f.label(:two_3, "Afternoons")%><br/>
+  <%= f.radio_button(:two, 4) %>
+  <%= f.label(:two_4, "Late night")%><br/>
+
+  <p>When faced with a problem do you go with your gut feeling or think it throught logically?</p>
+  <%= f.radio_button(:three, 1) %>
+  <%= f.label(:one_1, "Go with my gut")%><br/>
+  <%= f.radio_button(:three, 2) %>
+  <%= f.label(:one_2, "Think Logically")%><br/>
+
+  <p>Do you consider yourself more of a listener or communicator?</p>
+  <%= f.radio_button(:four, 1) %>
+  <%= f.label(:one_1, "Listener")%><br/>
+  <%= f.radio_button(:four, 2) %>
+  <%= f.label(:one_2, "Communicator")%><br/>
+
+  <p>Do you consider yourself an Introvert or Extrovert</p>
+  <%= f.radio_button(:five, 1) %>
+  <%= f.label(:one_1, "Introvert")%><br/>
+  <%= f.radio_button(:five, 2) %>
+  <%= f.label(:one_2, "Extrovert")%><br/>
+
+  <p>Are you an Optimist or a Pesemist?</p>
+  <%= f.radio_button(:six, 1) %>
+  <%= f.label(:one_1, "Optimist")%><br/>
+  <%= f.radio_button(:six, 2) %>
+  <%= f.label(:one_2, "Pessimist")%><br/>
+
+  <p>What is your strongest skill?</p>
+  <%= f.radio_button(:seven, 1) %>
+  <%= f.label(:one_1, "Skill 1")%><br/>
+  <%= f.radio_button(:seven, 2) %>
+  <%= f.label(:one_2, "Skill 2")%><br/>
+  <%= f.radio_button(:seven, 3) %>
+  <%= f.label(:one_3, "Skill 3")%><br/>
+  <%= f.radio_button(:seven, 4) %>
+  <%= f.label(:one_4, "Skill 4")%><br/>
+
+  <p>What is your weakest skill</p>
+  <%= f.radio_button(:eight, 1) %>
+  <%= f.label(:one_1, "Skill 1")%><br/>
+  <%= f.radio_button(:eight, 2) %>
+  <%= f.label(:one_2, "Skill 2")%><br/>
+  <%= f.radio_button(:eight, 3) %>
+  <%= f.label(:one_3, "Skill 3")%><br/>
+  <%= f.radio_button(:eight, 4) %>
+  <%= f.label(:one_4, "Skill 4")%><br/>
+
+  <%= f.submit %>
+
+
+
+<% end %>
+

@@ -8,6 +8,8 @@
 
 <%#if this is the current logged in user's profile, they can edit%>
 
+<%= debug @user %>
+
 <% if @user.id == session[:user_id] %>
   <%#edit profile or logout%>
   <%= link_to "Edit", edit_user_url(@user)%>
