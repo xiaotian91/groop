@@ -9,7 +9,7 @@
 
 <ul>
  <% @course.user.each do |user| %>
-   <li> <%= link_to user.name, user_url(user) %>
+   <li> <%= link_to user.username, user_url(user) %>
  <% end %>
 </ul>
 
