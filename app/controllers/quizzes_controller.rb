@@ -43,7 +43,7 @@ private
       flash[:notice] = "You must log in first"
       redirect_to login_url
     else
-      @user1 = User.find id
+      @user = User.find id
     end
   end
 

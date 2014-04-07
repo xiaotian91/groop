@@ -20,7 +20,6 @@
 <%#if this is the current logged in user's profile, they can edit%>
 
 <% if @user.id == session[:user_id] %>
-<%unless @user.quiz.nil? %>
 <%scores = Hash.new%>
 
 <% for user in @users %>
@@ -70,7 +69,6 @@
   <%newUser = @users.find(k)%>
   <li><%=link_to newUser.real_name, newUser %>  <%=v%></li>
   <br/>
-<%end%>
 <%end%>
 </ul>
 <br/>

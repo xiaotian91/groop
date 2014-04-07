@@ -29,7 +29,11 @@ class UsersController < ApplicationController
   @user = User.find(params[:id])
   user_params = params.require(:user).permit(:real_name, :age, :gender, :major, :bio)
   if @user.update_attributes(user_params)
+  unless @user.quiz.nil?
     redirect_to user_url(@user)
+  else
+    redirect_to new_quiz_url
+  end
   else
     render :action => "edit"
   end
