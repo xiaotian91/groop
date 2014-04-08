@@ -20,6 +20,7 @@ before_filter :get_logged_in_user
   
   def show
     @course = Course.find(params[:id])
+    @users = User.all
   end
 
 private

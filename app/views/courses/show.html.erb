@@ -8,9 +8,80 @@
 <h3> People enrolled in this course </h3>
 
 <ul>
- <% @course.user.each do |user| %>
-   <li> <%= link_to user.username, user_url(user) %>
+ <% @course.user.uniq.each do |user| %>
+   <% unless user == @user1 %>
+     <li> <%= link_to user.username, user_url(user) %>
+   <%end%>
  <% end %>
 </ul>
+
+<%scores = Hash.new%>
+
+  <%#=loop through each user in the db and compare the logged-in user's score%>
+  <%#=to it. for the compatiiblity percentage, start out at 100% and every %>
+  <%#=time the answers aren't the same, subtract 5 from the total percentage %>
+
+  <% @course.user.each do |user| %>
+
+    <%#=unless the current user in loop hasn't filled out a quiz%>
+    <% unless user.quiz.nil?%>
+
+      <%#=intial score is 100 %>
+      <% compatScore = 100 %>
+
+      <%#=if the user isn't yourself%>
+      <% if user.id != @user1.id %>
+
+        <%#=COMPARE QUIZ SCORES%>
+        <% if @user1.quiz.one!=user.quiz.one %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.two!=user.quiz.two %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.three!=user.quiz.three %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.three!=user.quiz.three %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.four!=user.quiz.four %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.five!=user.quiz.five %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.six!=user.quiz.six %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.seven!=user.quiz.eight %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <% if @user1.quiz.eight!=user.quiz.seven %>
+          <% compatScore = compatScore - 5 %>
+        <%end%>
+        <br/>
+
+
+        <%#=add the key,value (id,compatScore) to the scores hash table%>
+        <%scores[user.id] = compatScore%>
+      <%end%>
+    <%end%>
+
+  <%end%>
+
+  <%#=print the matches in descending order, each linking the user %>
+  <p>Your best matches</p>
+
+  <%sortedScores = scores.sort_by{|k,v| v}.reverse%>
+  <ul>
+
+  <%sortedScores.each do |k,v| %>
+
+    <%newUser = @users.find(k)%>
+    <li><%=link_to newUser.real_name, newUser %>  <%=v%>% Compatible</li>
+    <br/>
+  <%end%>
+
 
 <%= link_to "back to course list", courses_url %>
