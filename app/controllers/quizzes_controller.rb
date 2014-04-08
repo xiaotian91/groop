@@ -46,6 +46,8 @@ private
       @user = User.find id
     end
   end
+public:
+@user1 = @user 
 
 end
 

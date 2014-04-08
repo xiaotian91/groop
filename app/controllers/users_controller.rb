@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+before_filter :get_logged_in_user, :only => [:show]
+
   def new
     @user = User.new
   end
@@ -52,7 +54,7 @@ private
       flash[:notice] = "You must log in first"
       redirect_to login_url
     else
-      @user = User.find id
+      @user1 = User.find id
     end
   end
 

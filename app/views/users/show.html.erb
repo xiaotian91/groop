@@ -12,15 +12,18 @@
   <li> <%= link_to "#{course.courseNum} #{course.courseName}", course_url(course) %> </li>
 <% end %>
 </ul>
-<%= render "registrations/form" %>
-<%= link_to "Add Your Course", courses_url%>
-<%= link_to "Edit", edit_user_url(@user)%>
-<%= link_to "Log Out", logout_url %>
-
 <%#if this is the current logged in user's profile, they can edit%>
 
 <% if @user.id == session[:user_id] %>
+
+<%= render "registrations/form" %>
+Don't see your course? <%= link_to "Add it", courses_url%>.
+
 <%scores = Hash.new%>
+
+<%#=loop through each user in the db and compare the logged-in user's score%>
+<%#=to it. for the compatiiblity percentage, start out at 100% and every %>
+<%#=time the answers aren't the same, subtract 5 from the total percentage %>
 
 <% for user in @users %>
   <% compatScore = 100 %>
@@ -55,11 +58,15 @@
     <% compatScore = compatScore - 5 %>
   <%end%>
   <br/>
+
+
+  <%#=add the key,value to of id,compatScore to the hash%>
   <%scores[user.id] = compatScore%>
   <%end%>
  
 <%end%>
 
+<%#=print the matches in descending order, each linking the user %>
 <p>Your best matches</p>
 
 <%sortedScores = scores.sort_by{|k,v| v}.reverse%>

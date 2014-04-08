@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+
+before_filter :get_logged_in_user, :only => [:new, :create, :index, :show]
   
   def new
    @course = Course.new 
@@ -19,5 +21,17 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
   end
+
+private
+  def get_logged_in_user
+    id = session[:user_id]
+    if id.nil?
+      flash[:notice] = "You must log in first"
+      redirect_to login_url
+    else
+      @user1 = User.find id
+    end
+  end
+
 
 end

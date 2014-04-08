@@ -5,4 +5,7 @@ class RegistrationsController < ApplicationController
     @registration.save
     redirect_to user_url(@registration.user)
   end
+
+
+
 end

@@ -2,5 +2,5 @@
 <%= form_for(@registration) do |f| %>
   <%= f.hidden_field :user_id %>
   <%= f.collection_select :course_id, Course.all, :id, :courseName %>
-  <%= f.submit %>
+  <%= f.submit "Enroll" %>
 <% end %>
