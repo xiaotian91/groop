@@ -12,19 +12,20 @@
  *= require_tree .
  */
 
-body {
-  width: 650px;
+.wrapper {
+  width: 600px;
+  height: 100px;
   margin: 0 auto;
-  border: 2px solid black;
-  border-radius: 20px;
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding: 20px;
+  border-bottom: 2px dashed #3d233f;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;	
   font-weight: 200;
+  background: #d88681;
 }
 
 #mainHeader {
-  color: blue;
+  color: #3d233f;
   text-align: center;
 }
+
+
