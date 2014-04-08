@@ -12,14 +12,19 @@
  *= require_tree .
  */
 
+
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+
+}
+
 .wrapper {
   width: 600px;
   height: 100px;
   margin: 0 auto;
   padding: 20px;
-  border-bottom: 2px dashed #3d233f;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;	
-  font-weight: 200;
   background: #d88681;
 }
 
@@ -28,4 +33,9 @@
   text-align: center;
 }
 
+.mainBody {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
