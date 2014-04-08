@@ -1,3 +1,12 @@
-<div id="quiz">
-  <%= render "quiz" %>
-</div>
+<%if @quiz.user.id==@user1.id%>
+
+  <div id="quiz">
+    <%= render "quiz" %>
+  </div>
+
+<%else%>
+  <%#=if you are here, you are trying to edit someone else. redirect them. %>
+  <script type="text/javascript">
+    window.location.href="/quizzes/"+<%=@user1.id%>+"/edit" 
+  </script>
+<%end%>

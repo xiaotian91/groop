@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
 
-before_filter :get_logged_in_user, :only => [:new, :create]
+before_filter :get_logged_in_user
 
     def new
     @quiz = Quiz.new
@@ -44,10 +44,9 @@ private
       redirect_to login_url
     else
       @user = User.find id
+      @user1 = @user
     end
   end
-public:
-@user1 = @user 
 
 end
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_filter :get_logged_in_user, :only => [:show]
+before_filter :get_logged_in_user, :except => [:new, :create]
 
   def new
     @user = User.new

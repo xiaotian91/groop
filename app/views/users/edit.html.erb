@@ -1,12 +1,20 @@
-<h2> Edit <%= @user.real_name %> </h2>
+<%if ( not @user.nil? ) and (@user.id == @user1.id)%>
+  <h2> Edit <%= @user.real_name %> </h2>
 
-<%= form_for @user do |f| %>
-  <%= f.label :real_name, "Name" %> <%= f.text_field :real_name %> <br />
-  <%= f.label :age, "Age" %> <%= f.text_field :age %> <br />
-  <%= f.label :gender, "Gender" %> <%= f.text_field :gender %> <br />
-  <%= f.label :major, "Major" %> <%= f.text_field :major %> <br />
-  <%= f.label :bio, "About me" %> <%= f.text_field :bio %> <br />
+  <%= form_for @user do |f| %>
+    <%= f.label :real_name, "Name" %> <%= f.text_field :real_name %> <br />
+    <%= f.label :age, "Age" %> <%= f.text_field :age %> <br />
+    <%= f.label :gender, "Gender" %> <%= f.text_field :gender %> <br />
+    <%= f.label :major, "Major" %> <%= f.text_field :major %> <br />
+    <%= f.label :bio, "About me" %> <%= f.text_field :bio %> <br />
 
+    <%= f.submit %>
+  <% end %>
 
-  <%= f.submit %>
-<% end %>
+<%else%>
+
+<%#=if you are here, you are trying to edit someone else. redirect them. %>
+  <script type="text/javascript">
+    window.location.href="/users/"+<%=@user1.id%>+"/edit" 
+  </script>
+<%end%>

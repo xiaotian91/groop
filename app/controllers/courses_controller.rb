@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 
-before_filter :get_logged_in_user, :only => [:new, :create, :index, :show]
+before_filter :get_logged_in_user
   
   def new
    @course = Course.new 
