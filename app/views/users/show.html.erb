@@ -6,25 +6,28 @@
   <li>About me: <%= @user.bio %></li>
 </ul>
 
+<%#if this is the current logged in user's profile, they can edit%>
+
+<% if @user.id == session[:user_id] %>
+
+  <%= link_to "Edit Profile", edit_user_url(@user)%>
+
+  <%#take or edit quiz%> 
+  <% if @user.quiz.nil?%>    <%= link_to "Take Quiz", new_quiz_url %>
+  <%else%>
+    <%= link_to "Edit Quiz", edit_quiz_url(@user.id) %>
+  <%end%>
+  <br/>
+  <%= render "registrations/form" %>
+  Don't see your course? <%= link_to "Add it", courses_url%>.
+  <br/>
+
+<%end%>
+
+
 <h3> Courses </h3>
 <ul>
 <% @user.courses.each do |course| %>
   <li> <%= link_to "#{course.courseNum} #{course.courseName}", course_url(course) %> </li>
 <% end %>
 </ul>
-<%#if this is the current logged in user's profile, they can edit%>
-
-<% if @user.id == session[:user_id] %>
-
-  <%= render "registrations/form" %>
-  Don't see your course? <%= link_to "Add it", courses_url%>.
-  <br/>
-  <%#edit profile or logout%>
-  <%= link_to "Edit", edit_user_url(@user)%>
-  <%= link_to "Log Out", logout_url %>
-  <% if @user.quiz.nil?%>
-    <%= link_to "Take Quiz", new_quiz_url %>
-  <%else%>
-    <%= link_to "Edit Quiz", edit_quiz_url(@user.id) %>
-  <%end%>
-<%end%>

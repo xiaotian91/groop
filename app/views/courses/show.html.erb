@@ -1,19 +1,8 @@
-<h1>
- <%= @course.courseName %></h1>
+<h1><%= @course.courseName %></h1>
  <br/>
- <%= @course.courseNum %><br/>
- <%= @course.instructorName %><br/>
- <%= @course.courseDesc %><br/>
-
-<h3> People enrolled in this course </h3>
-
-<ul>
- <% @course.user.uniq.each do |user| %>
-   <% unless user == @user1 %>
-     <li> <%= link_to user.username, user_url(user) %>
-   <%end%>
- <% end %>
-</ul>
+ <p>Course Number: <%= @course.courseNum %></p>
+ <p>Instructor: <%= @course.instructorName %></p>
+ <p>Description: <%= @course.courseDesc %></p>
 
 <%scores = Hash.new%>
 
@@ -60,7 +49,6 @@
         <% if @user1.quiz.eight!=user.quiz.seven %>
           <% compatScore = compatScore - 5 %>
         <%end%>
-        <br/>
 
 
         <%#=add the key,value (id,compatScore) to the scores hash table%>
@@ -71,7 +59,7 @@
   <%end%>
 
   <%#=print the matches in descending order, each linking the user %>
-  <p>Your best matches</p>
+  <h3>Your best matches</h3>
 
   <%sortedScores = scores.sort_by{|k,v| v}.reverse%>
   <ul>
@@ -83,5 +71,3 @@
     <br/>
   <%end%>
 
-
-<%= link_to "back to course list", courses_url %>
