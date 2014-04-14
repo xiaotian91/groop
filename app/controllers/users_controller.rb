@@ -21,6 +21,7 @@ before_filter :get_logged_in_user, :except => [:new, :create]
     @user = User.find(params[:id])
     @users = User.all
     @registration = @user.registrations.new
+    @groop_registration = @user.groop_registrations.new
   end
 
   def edit

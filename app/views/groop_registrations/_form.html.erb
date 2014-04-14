@@ -1,0 +1,6 @@
+<h4> Create a Groop </h4>
+<%= form_for(@groop_registration) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.collection_select :grooping_id, Grooping.all, :id, :groop_name %>
+  <%= f.submit %>
+<% end %>

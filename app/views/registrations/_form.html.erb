@@ -1,4 +1,4 @@
-<h4> Add a class for this person </h4>
+<h4> Enroll in a course </h4>
 <%= form_for(@registration) do |f| %>
   <%= f.hidden_field :user_id %>
   <%= f.collection_select :course_id, Course.all, :id, :courseName %>
