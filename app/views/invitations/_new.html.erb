@@ -1,5 +1,5 @@
 <%= form_for @invitation do |f| %>
-  <%=hidden_field_tag 'recipient_id', @id %>
+  <%= f.hidden_field :recipient_id, :value => recipient_id %>
   <%= f.collection_select :groop_id, @user1.groopings.uniq , :id, :groop_name %>
   <%= f.submit "Invite!" %>
 <% end %>

@@ -1,5 +1,4 @@
 <h1> <%= @groop.groop_name %> </h1>
-<% @groop.users.each do |user| %>
+<% @groop.users.uniq.each do |user| %>
   <li><%=user.real_name %></li>
 <%end%>
-<%= link_to "Back to Groops", grooping_url %>

@@ -1,6 +1,6 @@
 class InvitationsController < ApplicationController
 
-before_filter :get_logged_in_user, :only => [:new, :create]
+before_filter :get_logged_in_user
 
   def new
     @id = params[:recipient_id]
@@ -19,6 +19,32 @@ before_filter :get_logged_in_user, :only => [:new, :create]
       render :action => "new"
     end
   end
+
+
+  #edit and update are called when current user accepts/denies groop invite
+  def edit
+    @invitation = Invitation.find(params[:id])
+  end
+
+  def update
+    @invitation = Invitation.find(params[:id])
+    invite_params = params.require(:invitation).permit(:sender_id, :recipient_id, :groop_id, :is_accepted)
+    if @invitation.update_attributes(invite_params)
+      #create a new registration if the invite is accepted
+      if @invitation.is_accepted == 1
+        @addGroop = @user1.groop_registrations.new
+        @addGroop.grooping_id = @invitation.groop_id
+        @addGroop.user_id = @user1.id
+        @addGroop.save
+        redirect_to grooping_url(@addGroop.grooping_id)
+      else
+        redirect_to @user1
+      end
+    else
+      render :action => "edit"
+    end
+  end
+
   
 private
   def get_logged_in_user

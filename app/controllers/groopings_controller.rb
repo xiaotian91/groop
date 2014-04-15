@@ -1,5 +1,7 @@
 class GroopingsController < ApplicationController
 
+before_filter :get_logged_in_user
+
   def new
     @groop = Grooping.new
   end
@@ -8,6 +10,10 @@ class GroopingsController < ApplicationController
     @params = params.require(:grooping).permit(:groop_name)
     @groop = Grooping.new(@params)
     if @groop.save
+      @addGroop = @user1.groop_registrations.new
+      @addGroop.grooping_id =  @groop.id
+      @addGroop.user_id = @user1.id
+      @addGroop.save
       redirect_to groopings_url
     else
       render action: "new"
@@ -21,5 +27,17 @@ class GroopingsController < ApplicationController
   def show
     @groop = Grooping.find params[:id]
   end
+
+private
+  def get_logged_in_user
+    id = session[:user_id]
+    if id.nil?
+      flash[:notice] = "You must log in first"
+      redirect_to login_url
+    else
+      @user1 = User.find id
+    end
+  end
+
 
 end

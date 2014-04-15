@@ -6,16 +6,33 @@
   <li>About me: <%= @user.bio %></li>
 </ul>
 
-<%= debug @invites %>
-<%@invites.each do |invite| %>
-  
-  <%if invite.sender_id == @user.id%>
-     <%#= debug invite %>
-  <%end%>
-<%end%>
 <%#if this is the current logged in user's profile, they can edit%>
 
 <% if @user.id == session[:user_id] %>
+
+  <%#=logged in users current invites %>
+  <ul>
+  <%@invites.each do |invite| %>
+    
+    <%#=if the user hasn't already accepted/denied the invite, ask them if they want to accept/deny %> 
+    <% if invite.is_accepted.nil? %>
+      <%if invite.recipient_id == @user.id%>
+        <%#=pull the sender user object from list of users, as well as groop object from list of groops %>
+        <%@sender = @users.find(invite.sender_id) %>
+        <%@groop = @groops.find(invite.groop_id) %>
+	<%#=invite%>
+        <li>You've been invited to <%= link_to @groop.groop_name, @groop%> by <%= link_to @sender.real_name, @sender %></li>
+        <%= form_for(invite) do |f| %>
+          <%= f.radio_button(:is_accepted, 1) %>
+          <%= f.label(:one_1, "Accept")%>
+          <%= f.radio_button(:is_accepted, 0) %>
+          <%= f.label(:one_1, "Deny")%>
+          <%= f.submit "Answer Invite" %>
+        <%end%>
+      <%end%>
+    <%end%>
+  <%end%>
+  </ul>
 
   <%= link_to "Edit Profile", edit_user_url(@user)%>
 
@@ -28,9 +45,15 @@
   <%= render "registrations/form" %>
   Don't see your course? <%= link_to "Add it", new_course_url%>.
   <br/>
-  
+
+  <h3>Groops</h3>
+  <ul>
+    <% @user.groopings.uniq.each do |groop| %>
+      <li> <%= link_to "#{groop.groop_name}", grooping_url(groop) %> </li>
+    <% end %>
+  </ul>
+
   <%= link_to "Create a Groop", new_grooping_url%>
- 
 <%end%>
 
 
@@ -38,12 +61,6 @@
 <ul>
 <% @user.courses.each do |course| %>
   <li> <%= link_to "#{course.courseNum} #{course.courseName}", course_url(course) %> </li>
-<% end %>
-</ul>
-<h3>Groops</h3>
-  <ul>
-  <% @user.groopings.each do |groop| %>
-  <li> <%= link_to "#{groop.groop_name}", grooping_url(groop) %> </li>
 <% end %>
 </ul>
 
