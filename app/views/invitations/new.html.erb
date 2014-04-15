@@ -1,0 +1,6 @@
+<%= form_for @invitation do |f| %>
+  <%= debug @user1 %>
+  <%=hidden_field_tag 'recipient_id', @id %>
+  <%= f.collection_select :groop_id, Grooping.all, :id, :groop_name %>
+  <%= f.submit "Invite!" %>
+<% end %>

@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_one :quiz
   has_many :groop_registrations
   has_many :groopings, through: :groop_registrations
+
+  has_many :invitations
+  belongs_to :invitation
+
 end

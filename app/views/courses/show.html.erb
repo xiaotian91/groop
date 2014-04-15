@@ -67,7 +67,7 @@
   <%sortedScores.each do |k,v| %>
 
     <%newUser = @users.find(k)%>
-    <li><%=link_to newUser.real_name, newUser %>  <%=v%>% Compatible</li>
+    <li><%=link_to newUser.real_name, newUser %>  <%=v%>% Compatible <%= link_to "Invite", new_invitation_url(:recipient_id => newUser.id )%> </li>
     <br/>
   <%end%>
 

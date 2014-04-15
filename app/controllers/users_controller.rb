@@ -22,6 +22,7 @@ before_filter :get_logged_in_user, :except => [:new, :create]
     @users = User.all
     @registration = @user.registrations.new
     @groop_registration = @user.groop_registrations.new
+    @invites = Invitation.all
   end
 
   def edit
