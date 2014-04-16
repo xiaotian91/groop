@@ -14,7 +14,7 @@ before_filter :get_logged_in_user
       @addGroop.grooping_id =  @groop.id
       @addGroop.user_id = @user1.id
       @addGroop.save
-      redirect_to groopings_url
+      redirect_to @user1
     else
       render action: "new"
     end
@@ -26,6 +26,14 @@ before_filter :get_logged_in_user
   
   def show
     @groop = Grooping.find params[:id]
+    @post_list = Post.all
+
+    @post = Post.new
+    @post.posted = Time.now
+    @post.user = @user1
+    @post.groop_id = @groop.id
+    @post.save
+    
   end
 
 private

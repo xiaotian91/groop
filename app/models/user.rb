@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   has_many :invitations
   belongs_to :invitation
 
+  has_many :posts
+
 end

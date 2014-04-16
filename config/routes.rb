@@ -1,4 +1,6 @@
 Groop::Application.routes.draw do
+  resources :posts
+
   resources :invitations
 
   resources :groop_registrations
@@ -15,6 +17,8 @@ Groop::Application.routes.draw do
   get "logout" => "auth#logout", :as => "logout"
   post "do_login" => "auth#do_login", :as => "do_login"
   resources :users
+
+  root 'users#welcome'  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
