@@ -1,4 +1,10 @@
-<h1> <%= @groop.groop_name %> </h1>
+<h1><%= @groop.groop_name %> </h1>
+
 <% @groop.users.uniq.each do |user| %>
   <li><%=user.real_name %></li>
+<%end%>
+
+<% if @groop.users.include? @user1 %>
+<%= render "posts/new" %>
+<%= render "posts/index", :groop => @groop %>
 <%end%>

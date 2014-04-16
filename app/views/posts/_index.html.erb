@@ -1,0 +1,19 @@
+<h4> Public Timeline </h4>
+<%#= debug @groop %>
+<% @post_list.each do |post| %>
+  <%#= debug post %>
+  <% if post.groop_id == @groop.id && !post.content.nil? %>
+  <div class="post">
+    <div class="content">
+     <%= post.content %>
+    </div>
+    <span style="font-size:small;">
+     <%= post.posted %>
+     <% unless post.user.nil? %>
+       by <%= link_to(post.user.real_name, user_url(post.user)) %>
+     <% end %>
+        </span>
+  </div>
+  <hr/>
+  <%end%>
+<% end %>

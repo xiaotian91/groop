@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
   has_attached_file :picture, :styles => {:medium => "300x300>" }
 
   validates_attachment :picture, :content_type => { :content_type => ["image/jpg", "image/gif", "image/png", "image/jpeg"] }
+  has_many :posts
+
 end

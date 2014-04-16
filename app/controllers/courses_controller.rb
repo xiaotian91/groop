@@ -21,13 +21,12 @@ before_filter :get_logged_in_user
   def show
     @course = Course.find(params[:id])
     @users = User.all
+
     @id = params[:recipient_id]
     @invitation = Invitation.new
     @invitation.sender_id = @user1.id
     @invitation.recipient_id = params[:recipient_id]
     @invitation.save
-
-
   end
 
 private
