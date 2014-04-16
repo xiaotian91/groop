@@ -5,6 +5,7 @@
   <li><%= @user.age %> years old.</li>
   <li>Major: <%= @user.major %></li>
   <li>About me: <%= @user.bio %></li>
+  <li> <%= image_tag @user.picture.url(:medium) %> </li>
 </ul>
 
 <%#if this is the current logged in user's profile, they can edit%>

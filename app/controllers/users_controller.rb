@@ -7,7 +7,7 @@ before_filter :get_logged_in_user, :except => [:new, :create]
   end
   
   def create
-   user_params = params.require(:user).permit(:username, :password, :real_name, :password_confirmation)
+   user_params = params.require(:user).permit(:username, :password, :real_name, :password_confirmation, :picture)
     @user = User.new user_params
     if (@user.save)
       session[:user_id] = @user.id
@@ -32,7 +32,7 @@ before_filter :get_logged_in_user, :except => [:new, :create]
 
   def update
   @user = User.find(params[:id])
-  user_params = params.require(:user).permit(:real_name, :age, :gender, :major, :bio)
+  user_params = params.require(:user).permit(:real_name, :age, :gender, :major, :bio, :picture)
   if @user.update_attributes(user_params)
   unless @user.quiz.nil?
     redirect_to user_url(@user)
