@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 <head>
   <title>Groop</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -7,8 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="logout">
+<%= link_to "Log out", logout_url %>
+</div>
 <div class="wrapper">
-<h1 id="mainHeader" >Groop <%= link_to "Profile", @user1 %> <%= link_to "Log out", logout_url %> </h1>
+<h1 id="mainHeader" ><img src="http://i60.tinypic.com/16ifg2s.png" alt="Groop Logo" height ="270" width="500"> <%= link_to "Profile", @user1 %> </h1>
 </div>
 <div class ="mainBody">
 <%= yield %>

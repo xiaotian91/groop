@@ -15,23 +15,47 @@
 
 
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Oxygen", sans-serif;
   font-weight: 200;
   width: 600px;
   margin: 0 auto;
+  background: #D8D8D8;
+  
 }
 
 .wrapper {
   width: 600px;
   height: 100px;
   margin: 0 auto;
-  padding: 20px;
-  background: #d88681;
+  padding-bottom: 240px;
+  background: #FFFFFF;
 }
 
 #mainHeader {
-  color: #3d233f;
+  color: #000000;
   text-align: center;
+  
+  
+ 
 }
 
+.logout {
+   position: fixed;
+   right: 20px;
+   top: 5px;
+   padding: 20px;
+}
 
+.mainBody {
+  
+  width: 600px;
+  text-align:
+  color: #FFFFFF;
+   
+ 
+}
+.profilebody{
+  background: #FFFFFF;
+  width: 600px
+  border: 1px solid black;
+}
