@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415171805) do
+ActiveRecord::Schema.define(version: 20140416210806) do
 
   create_table "courses", force: true do |t|
     t.string   "courseNum"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20140415171805) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_accepted"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "content"
+    t.datetime "posted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "groop_id"
   end
 
   create_table "quizzes", force: true do |t|
@@ -78,6 +87,10 @@ ActiveRecord::Schema.define(version: 20140415171805) do
     t.string   "major"
     t.string   "bio"
     t.integer  "quiz_id"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
 end

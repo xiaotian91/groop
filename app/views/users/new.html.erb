@@ -13,6 +13,7 @@
   <% end %>
   <%= f.label :username, "Username" %> <%= f.text_field :username %><br />
   <%= f.label :real_name, "Real Name" %> <%= f.text_field :real_name %><br />
+  <%= f.label :picture, "Picture" %> <%= f.file_field :picture %> <br />
   <%= f.label :password, "Password" %> <%= f.password_field :password %> <br />
   Confirm: <%= f.password_field :password_confirmation %>  <br />
   <%= f.submit %>
