@@ -1,14 +1,29 @@
 <div class="profilebody">
-<h1><%= @user.real_name %></h1>
+<%= image_tag @user.picture.url(:medium), class: "userimg" %>
+
+<div class = "userinfo">
 <ul>
+  <li><h1><%= @user.real_name %></h1></li>
   <li><%= @user.gender %></li>
   <li><%= @user.age %> years old.</li>
   <li>Major: <%= @user.major %></li>
   <li>About me: <%= @user.bio %></li>
-  <%unless @user.picture.nil? %>
-  <li> <%= image_tag @user.picture.url(:medium) %> </li>
-  <%end%>
+  <br/>
+<% if @user.id == session[:user_id] %>
+<li><%= link_to "Edit Profile", edit_user_url(@user)%>
+
+  <%#take or edit quiz%>
+  <% if @user.quiz.nil?%>    <%= link_to "Take Quiz", new_quiz_url %>
+  <%else%>
+    <%= link_to "Edit Quiz", edit_quiz_url(@user.id) %>
+  <%end%></li>
+<%end%>
+<h3> Courses </h3>
+<% @user.courses.each do |course| %>
+  <li> <%= link_to "#{course.courseNum} #{course.courseName}", course_url(course) %> </li>
+<% end %>
 </ul>
+</div>
 
 <%#if this is the current logged in user's profile, they can edit%>
 
@@ -37,20 +52,12 @@
     <%end%>
   <%end%>
   </ul>
-
-  <%= link_to "Edit Profile", edit_user_url(@user)%>
-
-  <%#take or edit quiz%> 
-  <% if @user.quiz.nil?%>    <%= link_to "Take Quiz", new_quiz_url %>
-  <%else%>
-    <%= link_to "Edit Quiz", edit_quiz_url(@user.id) %>
-  <%end%>
-  <br/>
   <%= render "registrations/form" %>
+  <br/>
   Don't see your course? <%= link_to "Add it", new_course_url%>.
   <br/>
 
-  <h3>Groops</h3>
+  <h3>Your Groops</h3>
   <ul>
     <% @user.groopings.uniq.each do |groop| %>
       <li> <%= link_to "#{groop.groop_name}", grooping_url(groop) %> </li>
@@ -59,13 +66,5 @@
 
   <%= link_to "Create a Groop", new_grooping_url%>
 <%end%>
-
-
-<h3> Courses </h3>
-<ul>
-<% @user.courses.each do |course| %>
-  <li> <%= link_to "#{course.courseNum} #{course.courseName}", course_url(course) %> </li>
-<% end %>
-</ul>
 
 </div>

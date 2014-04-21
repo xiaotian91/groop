@@ -14,7 +14,7 @@ before_filter :get_logged_in_user
     if  @quiz.save
       redirect_to user_url(@quiz.user)
     else
-      render :action => "new"
+      render action:  "new"
     end
   end
  
@@ -32,7 +32,7 @@ before_filter :get_logged_in_user
     if @quiz.update_attributes(quiz_params)
       redirect_to user_url(@quiz.user)
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 
