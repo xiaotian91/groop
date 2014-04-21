@@ -2,19 +2,19 @@ class QuizzesController < ApplicationController
 
 before_filter :get_logged_in_user
 
-    def new
+  def new
     @quiz = Quiz.new
   end
 
   def create 
-    @params = params.require(:quiz).permit(:one, :two, :three, :four, :five, :six, :seven, :eight, :nine, :ten)
+    @params = params.require(:quiz).permit(:one, :two, :three, :four, :five, :six, :seven, :eight)
     @quiz = Quiz.new(@params)
     @quiz.id = @user.id
     @quiz.user = @user
-    if  @quiz.save
+    if @quiz.save
       redirect_to user_url(@quiz.user)
     else
-      render action:  "new"
+      render action: "new"
     end
   end
  
@@ -28,7 +28,7 @@ before_filter :get_logged_in_user
 
   def update
     @quiz = Quiz.find(params[:id])
-    quiz_params = params.require(:quiz).permit(:one, :two, :three, :four, :five, :six, :seven, :eight, :nine, :ten)
+    quiz_params = params.require(:quiz).permit(:one, :two, :three, :four, :five, :six, :seven, :eight)
     if @quiz.update_attributes(quiz_params)
       redirect_to user_url(@quiz.user)
     else
