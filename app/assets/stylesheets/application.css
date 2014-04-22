@@ -54,7 +54,7 @@ a:hover {
    padding: 20px;
 }
 
-.logout a:visited, .logout a.link {
+.logout a:visited, .logout a:link {
   color: white;
 }
 .logout a:hover {
