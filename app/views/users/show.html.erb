@@ -52,19 +52,22 @@
     <%end%>
   <%end%>
   </ul>
+  <div class="enroll">
   <%= render "registrations/form" %>
   <br/>
   Don't see your course? <%= link_to "Add it", new_course_url%>.
   <br/>
-
-  <h3>Your Groops</h3>
+  </div>
+  <div class="groops">
   <ul>
+  <li><h3>Your Groops</h3></li>
     <% @user.groopings.uniq.each do |groop| %>
       <li> <%= link_to "#{groop.groop_name}", grooping_url(groop) %> </li>
     <% end %>
+  <br/>
+  <li><%= link_to "Create a Groop", new_grooping_url%></li>
   </ul>
-
-  <%= link_to "Create a Groop", new_grooping_url%>
+  </div>
 <%end%>
 
 </div>

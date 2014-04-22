@@ -1,6 +1,9 @@
 <h4> Create a Groop </h4>
 <%= form_for(@groop_registration) do |f| %>
   <%= f.hidden_field :user_id %>
+  <%=debug Grooping%>
+  <%if Grooping.size>0 %>
   <%= f.collection_select :grooping_id, Grooping.all, :id, :groop_name %>
   <%= f.submit "Create Groop" %>
+  <%end%>
 <% end %>

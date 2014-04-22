@@ -1,5 +1,9 @@
 <%= form_for @invitation do |f| %>
   <%= f.hidden_field :recipient_id, :value => recipient_id %>
-  <%= f.collection_select :groop_id, @user1.groopings.uniq , :id, :groop_name %>
+  <%if @user1.groopings.uniq.size >0 %>
+    <%= f.collection_select :groop_id, @user1.groopings.uniq , :id, :groop_name %>
   <%= f.submit "Invite!" %>
+  <%else%>
+    <%= link_to "Create a Groop to invite this grooper", new_grooping_url  %>
+  <%end%>
 <% end %>
