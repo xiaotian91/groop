@@ -19,8 +19,9 @@ body {
   font-weight: 200;
   width: 600px;
   margin: 0 auto;
-  //background: #D8D8D8;
-  background: #323299;
+  background: #ADDDFF;
+ //background: #323299;
+  //background: #FFE1AD;
 }
 
 a:visited, a:link {
