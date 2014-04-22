@@ -37,7 +37,7 @@ a:hover {
   margin: 0 auto;
   padding-bottom:40px;
   background: #9EDE66;
-  border: 1px solid black;
+  border: 1px solid #9ede66;
   border-radius: 25px;
   margin-top:10px;
 }
@@ -70,7 +70,7 @@ a:hover {
 .profilebody{
   background: #FFFFFF;
   //width: 560px;
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 10px;
 }
  
