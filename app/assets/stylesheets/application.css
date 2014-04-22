@@ -19,24 +19,32 @@ body {
   font-weight: 200;
   width: 600px;
   margin: 0 auto;
-  background: #D8D8D8;
-  
+  //background: #D8D8D8;
+  background: #323299;
+}
+
+a:visited, a:link {
+ color:#323299;
+}
+
+a:hover {
+ color: #9EDE66;
 }
 
 .wrapper {
-  width: 600px;
+  width: 620px;
   height: 100px;
   margin: 0 auto;
-  padding-bottom: 240px;
-  background: #FFFFFF;
+  padding-bottom:40px;
+  background: #9EDE66;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin-top:10px;
 }
 
 #mainHeader {
   color: #000000;
   text-align: center;
-  
-  
- 
 }
 
 .logout {
@@ -46,16 +54,30 @@ body {
    padding: 20px;
 }
 
-.mainBody {
-  
-  width: 600px;
-  text-align:
-  color: #FFFFFF;
-   
- 
+.logout a:visited, .logout a.link {
+  color: white;
 }
+.logout a:hover {
+  color: #9EDE66;
+}
+ 
+
+.mainBody {
+  width: 580px;
+  color: #FFFFFF;
+}
+
 .profilebody{
   background: #FFFFFF;
-  width: 600px
+  //width: 560px;
   border: 1px solid black;
+  padding: 10px;
+}
+ 
+.userphoto {
+  border-radius: 50px;
+}
+
+ul {
+  list-style-type:none;
 }

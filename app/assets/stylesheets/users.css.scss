@@ -7,20 +7,41 @@
 background: #F3F0E4;
 width: 600px;
 border: 1px solid black;
+  background: #FFFFFF;
+  width: 600px;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin: 10px 0 10px 0;
 }
 
 .userimg {
  display:inline-block;
  vertical-align: top;
  margin: 5px;
+ border-radius: 25px;
 }
 
 .userinfo {
   display:inline-block;
-  width: 280px;
+  width: 250px;
+  padding: 0px;
 }
 ul {
  list-style-type: none;
  padding-left: 25px;
 }
 
+.enroll {
+  display: inline-block;
+  width: 275px;
+}
+
+.groops {
+  display: inline-block;
+  width: 275px;
+}
+
+.editMe h2{
+  padding: 20px;
+}
+ 

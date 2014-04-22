@@ -13,9 +13,9 @@
 <%= link_to "Log out", logout_url %>
 </div>
 <div class="wrapper">
-<h1 id="mainHeader" ><img src="../../../img/logo.png" alt="Groop Logo" height ="270" width="500"> <%#= link_to "Profile", @user1 %>
+<h1 id="mainHeader" ><%= link_to image_tag("../../../img/grooplogo.png", height: "100", width: "320"), @user1 %> <%#= link_to "Profile", @user1 %>
 </div>
-<div class ="mainBody">
+<div class ="profilebody">
 <%= yield %>
 </div>
 </body>
