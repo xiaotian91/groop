@@ -26,7 +26,7 @@ before_filter :get_logged_in_user
   
   def show
     @groop = Grooping.find params[:id]
-    @post_list = Post.all
+    @post_list = Post.order(posted: :desc).all
 
     @post = Post.new
     @post.posted = Time.now

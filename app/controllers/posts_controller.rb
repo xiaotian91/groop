@@ -19,7 +19,7 @@ before_filter :get_logged_in_user, :only => [:new, :create]
   end  
 
   def index 
-    @post_list = Post.all
+ #   @post_list = Post.order(posted: :desc).all
   end
 
   def edit 
