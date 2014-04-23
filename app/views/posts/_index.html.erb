@@ -11,6 +11,7 @@
      <%= post.posted %>
      <% unless post.user.nil? %>
        by <%= link_to(post.user.real_name, user_url(post.user)) %>
+       <%= link_to("X", post_url(post.id), method: :delete, remote: true) %>
      <% end %>
         </span>
   </div>

@@ -34,6 +34,11 @@ before_filter :get_logged_in_user, :only => [:new, :create]
     end
   end
 
+  def destroy 
+    @post = Post.find params[:id]
+    @post.destroy
+  end
+
 private
   def get_logged_in_user
     id = session[:user_id]

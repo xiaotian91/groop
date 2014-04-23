@@ -62,16 +62,15 @@
   <h3>Your best matches</h3>
 
   <%sortedScores = scores.sort_by{|k,v| v}.reverse%>
-  <ul>
+  <ul class = "compat">
 
   <%sortedScores.each do |k,v| %>
     
     <%newUser = @users.find(k)%>
     <%= %>
     <li>
-    <%=image_tag newUser.picture.url(:small), class: "userphoto"%>
-    <p><%=link_to newUser.real_name, newUser %>  <%=v%>% Compatible <%= render "invitations/new", :recipient_id => newUser.id %></p>
-     <%#= link_to "Invite", new_invitation_url(:recipient_id => newUser.id )%> </li>
-    <br/>
+      <%=image_tag newUser.picture.url(:small), class: "userphoto"%>
+      <p><%=link_to newUser.real_name, newUser %>  <%=v%>% Compatible <%= render "invitations/new", :recipient_id => newUser.id %></p>
+    </li>
   <%end%>
-
+  </ul>
