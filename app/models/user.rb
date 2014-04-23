@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :invitations
   belongs_to :invitation
 
-  has_attached_file :picture, :styles => {:medium => "300x300>", :small => "100x100>" }, :default_url => "/img/default_:style.jpg"
+  has_attached_file :picture, :styles => {:medium => "300x300>", :small => "100x100#" }, :default_url => "/img/default_:style.jpg"
 
   validates_attachment :picture, :content_type => { :content_type => ["image/jpg", "image/gif", "image/png", "image/jpeg"] }
   has_many :posts
