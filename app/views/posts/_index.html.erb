@@ -1,5 +1,5 @@
 <h4> Public Timeline </h4>
-<%#= debug @groop %>
+<hr/>
 <% @post_list.each do |post| %>
   <%#= debug post %>
   <% if post.groop_id == @groop.id && !post.content.nil? %>
