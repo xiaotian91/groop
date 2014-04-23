@@ -19,7 +19,7 @@
   <%end%></li>
 <%end%>
 <h3> Courses </h3>
-<% @user.courses.each do |course| %>
+<% @user.courses.uniq.each do |course| %>
   <li> <%= link_to "#{course.courseNum} #{course.courseName}", course_url(course) %> </li>
 <% end %>
 </ul>
