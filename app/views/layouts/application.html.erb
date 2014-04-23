@@ -10,8 +10,10 @@
 </head>
 <body>
 <div class="logout">
+<%unless @user1.nil?%>
 <%= link_to "Profile", @user1 %> 
 <%= link_to "Log out", logout_url %>
+<%end%>
 </div>
 <div class="wrapper">
 <h1 id="mainHeader" ><%= link_to image_tag("../../../img/grooplogo.png", height: "100", width: "320"), @user1 %> <%#= link_to "Profile", @user1 %>
