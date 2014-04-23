@@ -24,6 +24,10 @@ body {
   //background: #FFE1AD;
 }
 
+a {
+  text-decoration:none;
+}
+
 a:visited, a:link {
  color:#323299;
 }
