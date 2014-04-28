@@ -2,7 +2,7 @@
 lock '3.2.1'
 
 set :application, 'groop'
-set :repo_url, 'git@webdev.cas.msu.edu:ebankske/groop'
+set :repo_url, 'git@webdev.cas.msu.edu:ebankske/groop.git'
 
 set :rbenv_type, :system # or :system, depends on your rbenv setup
   set :rbenv_ruby, '2.1.0'
