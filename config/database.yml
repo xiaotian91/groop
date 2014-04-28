@@ -32,7 +32,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: john3123_groop_production
+  database: _groop_production
   pool: 5
   username: john3123
   password: jarlcohnson

@@ -38,6 +38,12 @@ gem 'kaminari'
 
 gem 'jquery-ui-rails'
 
+gem 'capistrano'
+gem 'capistrano-rbenv'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
